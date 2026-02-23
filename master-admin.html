@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>H A I Master Admin</title>
+    <style>body{background:#000;color:red;text-align:center;padding:100px;font-family:monospace;}</style>
+</head>
+<body>
+    <div id="lock">
+        <h1>🔱 ENTER MASTER SECURITY KEY</h1>
+        <input type="password" id="key" style="padding:10px;">
+        <button onclick="unlock()" style="padding:10px;">Unlock Empire</button>
+    </div>
+
+    <div id="adminPanel" style="display:none;">
+        <h1 style="color:#00ffcc;">नमस्ते हरिगोविंद वैज्ञानिक जी!</h1>
+        <div class="controls">
+            <p>Total Revenue: ₹<span id="rev">45,000</span></p>
+            <p>Active Users: <span id="active">120</span></p>
+            <button onclick="alert('Global Cleanup Done!')">Clear Bad Content</button>
+            <button onclick="location.href='/'">Logout</button>
+        </div>
+    </div>
+
+    <script>
+        function unlock() {
+            if(document.getElementById('key').value === "HG_SCIENTIST_2026") {
+                document.getElementById('lock').style.display = 'none';
+                document.getElementById('adminPanel').style.display = 'block';
+            } else { alert("ACCESS DENIED: Illegal Entry!"); }
+        }
+    </script>
+</body>
+</html>
+
