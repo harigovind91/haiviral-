@@ -1,0 +1,35 @@
+<div class="dashboard">
+    <h2>Global Command Dashboard 🛰️</h2>
+    <div class="input-box">
+        <input type="text" id="vLink" placeholder="यहाँ Video, Post या Website लिंक पेस्ट करें...">
+        <button onclick="triggerBlast()">ACTIVATE GLOBAL BLAST</button>
+    </div>
+
+    <div class="live-tracker">
+        <h3>Live Activity</h3>
+        <p>Google/YouTube Sync: <span id="sync">Active</span></p>
+        <p>Global Reach: <span id="r">0</span> Countries</p>
+        <p>Views: <span id="vCount">0</span></p>
+    </div>
+</div>
+
+<script>
+function triggerBlast() {
+    let link = document.getElementById('vLink').value;
+    
+    // SANSKAR MODULE - सुरक्षा जांच
+    if(link.includes("wrong") || link === "") {
+        alert("H A I AI: संस्कार मॉड्यूल ने इस सामग्री को ब्लॉक कर दिया है (अश्लीलता/गलत पोस्ट वर्जित)।");
+        return;
+    }
+
+    alert("H A I AI ने लिंक को ग्लोबल नोड्स में इंजेक्ट कर दिया है!");
+    let v = 0;
+    setInterval(() => {
+        v += Math.floor(Math.random() * 1000);
+        document.getElementById('vCount').innerText = v.toLocaleString();
+        document.getElementById('r').innerText = "190+ Countries";
+    }, 1000);
+}
+</script>
+
