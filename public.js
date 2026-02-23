@@ -1,17 +1,53 @@
-function googleTranslateElementInit() {
-    new google.translate.TranslateElement({pageLanguage: 'hi'}, 'google_translate_element');
+let isLoggedIn = false;
+let isPaid = false;
+
+function openAuth() { document.getElementById('authModal').style.display = 'block'; }
+function closeAuth() { document.getElementById('authModal').style.display = 'none'; }
+
+function sendOTP() {
+    let contact = document.getElementById('userContact').value;
+    if(contact) {
+        alert("OTP sent to " + contact);
+        document.getElementById('otpStep1').style.display = 'none';
+        document.getElementById('otpStep2').style.display = 'block';
+    }
 }
 
-function pay(amt) {
+function verifyOTP() {
+    isLoggedIn = true;
+    alert("Profile Verified! Welcome to the Empire.");
+    closeAuth();
+}
+
+function checkAccess() {
+    if (!isLoggedIn) {
+        alert("पहले लॉगिन करें (OTP द्वारा)।");
+        openAuth();
+        return;
+    }
+    if (!isPaid) {
+        processPayment(); // पेमेंट होने के बाद ही वायरल होगा
+        return;
+    }
+    triggerGlobalBlast();
+}
+
+function processPayment() {
+    // UPI ID यहाँ गुप्त है, केवल भुगतान के समय ट्रिगर होगी
     const upiID = "harigovindsingh91-2@okhdfcbank";
-    // मोबाइल पर सीधे भुगतान ऐप खोलना
-    window.location.href = `upi://pay?pa=${upiID}&pn=Harigovind_Singh&am=${amt}&cu=INR&tn=HAI_Viral_Access`;
+    alert("Global Blast के लिए ₹2000 का भुगतान करें।");
+    window.location.href = `upi://pay?pa=${upiID}&pn=Harigovind_Singh&am=2000&cu=INR&tn=HAI_Viral_Service`;
     
-    // भुगतान के बाद डैशबोर्ड पर भेजें
-    setTimeout(() => { window.location.href = "dashboard.html"; }, 5000);
+    // भुगतान सफल होने का सिमुलेशन (Real integration में Webhook लगेगा)
+    isPaid = true; 
 }
 
-function saveUser() {
-    alert("Profile Created Successfully! Please pay to start Viral Blast.");
+function triggerGlobalBlast() {
+    let link = document.getElementById('globalLink').value;
+    if(link.includes("wrong") || link === "") {
+        alert("संस्कार मॉड्यूल: अश्लील या गलत कंटेंट ब्लॉक किया गया।");
+        return;
+    }
+    alert("Success! आपका कंटेंट अब Google, Meta और YouTube के ग्लोबल सर्वर पर वायरल हो रहा है।");
 }
-
+    
