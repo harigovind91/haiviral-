@@ -1,34 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>H A I Master Admin</title>
-    <style>body{background:#000;color:red;text-align:center;padding:100px;font-family:monospace;}</style>
+    <meta charset="UTF-8">
+    <title>HAI Admin | Command Center</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
 </head>
-<body>
-    <div id="lock">
-        <h1>🔱 ENTER MASTER SECURITY KEY</h1>
-        <input type="password" id="key" style="padding:10px;">
-        <button onclick="unlock()" style="padding:10px;">Unlock Empire</button>
-    </div>
-
-    <div id="adminPanel" style="display:none;">
-        <h1 style="color:#00ffcc;">नमस्ते हरिगोविंद वैज्ञानिक जी!</h1>
-        <div class="controls">
-            <p>Total Revenue: ₹<span id="rev">45,000</span></p>
-            <p>Active Users: <span id="active">120</span></p>
-            <button onclick="alert('Global Cleanup Done!')">Clear Bad Content</button>
-            <button onclick="location.href='/'">Logout</button>
+<body class="admin-body">
+    <div id="adminLock" class="lock-screen">
+        <div class="glass-card">
+            <h1 class="logo">h a i viral</h1>
+            <h3>Master Security Key Required</h3>
+            <input type="password" id="masterKeyInput" placeholder="Enter Security Key...">
+            <button onclick="unlockAdmin()" class="btn-blast">ACCESS COMMAND 🔱</button>
         </div>
     </div>
 
-    <script>
-        function unlock() {
-            if(document.getElementById('key').value === "HG_SCIENTIST_2026") {
-                document.getElementById('lock').style.display = 'none';
-                document.getElementById('adminPanel').style.display = 'block';
-            } else { alert("ACCESS DENIED: Illegal Entry!"); }
-        }
-    </script>
+    <div id="adminPanel" style="display:none;">
+        <nav class="admin-nav">
+            <h2>Command Center: Scientist Harigovind</h2>
+            <button onclick="location.reload()">Secure Logout</button>
+        </nav>
+        <div class="stats-row">
+            <div class="stat glass">Total Users: 1,450</div>
+            <div class="stat glass">Today's Revenue: ₹48,000</div>
+            <div class="stat glass">Nodes Active: Global</div>
+        </div>
+        <div class="table-container glass">
+            <h3>Recent User Requests</h3>
+            <table class="admin-table">
+                <thead>
+                    <tr><th>User Contact</th><th>Link</th><th>Payment</th><th>Action</th></tr>
+                </thead>
+                <tbody id="adminTableBody">
+                    <tr>
+                        <td>919876XXXX</td>
+                        <td>youtube.com/watch...</td>
+                        <td style="color:cyan">SUCCESS</td>
+                        <td><button onclick="killBlast()">KILL</button> <button onclick="boost()">BOOST</button></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="admin-logic.js"></script>
 </body>
-</html>
-
+                </html>
+    
