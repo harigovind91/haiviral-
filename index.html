@@ -3,10 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>h a i viral | Global Scientific Engine</title>
+    <title>h a i viral | Global Engine</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;900&display=swap" rel="stylesheet">
+    <script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
     <div id="google_translate_element" style="display:none;"></div>
@@ -14,42 +14,46 @@
 
     <header class="navbar">
         <div class="logo">h a i  viral</div>
-        <div class="auth-controls">
-            <button class="btn-login" onclick="openAuth()">Login / Sign Up</button>
-        </div>
+        <div id="userAuth"><button class="btn-outline" onclick="openModal()">Sign In</button></div>
     </header>
 
     <main class="hero">
-        <h1 class="famous-title">Global <span class="highlight">Viral Wave</span></h1>
-        <p>YouTube, Insta, FB, Website या App लिंक डालें और पूरी दुनिया में फैलाएं।</p>
+        <h1 class="famous-title">Global <span class="highlight">Viral Pulse</span></h1>
+        <p class="subtitle">वीडियो, पोस्ट या वेबसाइट का लिंक डालें और पूरी दुनिया में ब्लास्ट करें।</p>
 
         <div class="viral-input-box">
-            <input type="text" id="globalLink" placeholder="Paste link (Video, Reel, Post, App, Website)...">
-            <button onclick="checkAccess()" class="btn-blast">BLAST NOW 🚀</button>
+            <input type="text" id="targetLink" placeholder="Paste your link here...">
+            <button onclick="startUserFlow()" class="btn-blast">VIRAL NOW 🚀</button>
         </div>
 
-        <div class="create-content">
-            <p>या अपनी पोस्ट यहाँ बनाएँ</p>
-            <button onclick="openEditor()" class="btn-outline">Create Post/Reel</button>
+        <div id="userDashboard" class="dashboard-visual" style="display:none;">
+            <div class="gauge glass">
+                <div class="speedometer"><div class="needle" id="needle"></div></div>
+                <p>Velocity: <span id="speedVal">0</span> V-MPH</p>
+            </div>
         </div>
     </main>
 
-    <div id="authModal" class="modal">
+    <div id="masterModal" class="modal">
         <div class="modal-content glass">
-            <span class="close" onclick="closeAuth()">&times;</span>
-            <h2 id="authTitle">Secure Access</h2>
-            <div id="otpStep1">
-                <input type="text" id="userContact" placeholder="Mobile Number or Email">
-                <button onclick="sendOTP()" class="btn-glow">Send OTP</button>
+            <span class="close" onclick="closeModal()">&times;</span>
+            <div id="loginStep">
+                <h2>Login / Sign Up</h2>
+                <input type="text" id="contact" placeholder="Mobile Number or Email">
+                <button onclick="requestOTP()" class="btn-glow">Send OTP</button>
+                <div id="otpDiv" style="display:none; margin-top:15px;">
+                    <input type="text" id="otp" placeholder="6-Digit OTP">
+                    <button onclick="verifyUser()" class="btn-glow">Verify</button>
+                </div>
             </div>
-            <div id="otpStep2" style="display:none;">
-                <input type="text" id="otpCode" placeholder="Enter 6-Digit OTP">
-                <button onclick="verifyOTP()" class="btn-glow">Verify & Login</button>
+            <div id="paymentStep" style="display:none;">
+                <h2>Activate Global Blast</h2>
+                <p class="price">₹2000 / $25</p>
+                <button onclick="processPayment()" class="btn-pay">Pay with UPI / Card 💳</button>
             </div>
         </div>
     </div>
-
-    <script src="public.js"></script>
+    <script src="user-logic.js"></script>
 </body>
-            </html>
-    
+    </html>
+                
