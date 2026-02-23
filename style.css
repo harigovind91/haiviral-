@@ -1,22 +1,83 @@
+/* --- H A I Viral: Universal Styling --- */
 :root {
-    --primary: #00ffcc;
-    --bg: #050505;
-    --glass: rgba(255, 255, 255, 0.08);
+    --primary: #00ffcc; /* Neon Cyan */
+    --accent: #0099ff;  /* Deep Blue */
+    --gold: #ffd700;    /* Success Gold */
+    --bg: #050505;      /* Cosmic Black */
+    --glass: rgba(255, 255, 255, 0.05);
+    --error: #ff4757;
 }
 
-body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; text-align: center; margin: 0; }
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-.navbar { display: flex; justify-content: space-between; padding: 20px 50px; background: rgba(0,0,0,0.5); backdrop-filter: blur(10px); }
-.logo { font-family: 'Orbitron'; font-size: 1.8rem; color: var(--primary); letter-spacing: 5px; }
+body {
+    background: var(--bg);
+    color: white;
+    font-family: 'Inter', sans-serif;
+    overflow-x: hidden;
+}
 
+/* Background Pulse Animation */
+.background-animation {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 50% 50%, #111 0%, #000 100%);
+    z-index: -1;
+}
+
+/* Header & Logo */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    padding: 25px 50px;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 2.2rem;
+    color: var(--primary);
+    letter-spacing: 5px;
+    text-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+}
+
+/* Hero Section */
+.hero {
+    padding: 100px 20px;
+    text-align: center;
+}
+
+.famous-title {
+    font-size: 4.5rem;
+    font-weight: 900;
+    letter-spacing: -2px;
+}
+
+.highlight {
+    background: linear-gradient(90deg, var(--primary), var(--accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* Viral Input Box */
 .viral-input-box {
     margin: 50px auto;
     max-width: 800px;
     background: var(--glass);
-    padding: 10px;
+    border: 1px solid rgba(0, 255, 204, 0.3);
     border-radius: 100px;
-    border: 1px solid rgba(255,255,255,0.1);
     display: flex;
+    padding: 8px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 30px rgba(0, 255, 204, 0.1);
 }
 
 .viral-input-box input {
@@ -25,7 +86,7 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; te
     border: none;
     color: white;
     padding: 15px 30px;
-    font-size: 1.1rem;
+    font-size: 1.3rem;
     outline: none;
 }
 
@@ -33,14 +94,102 @@ body { background: var(--bg); color: white; font-family: 'Inter', sans-serif; te
     background: var(--primary);
     color: black;
     border: none;
-    padding: 15px 40px;
+    padding: 15px 50px;
     border-radius: 50px;
     font-weight: bold;
+    font-size: 1.1rem;
     cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-blast:hover {
+    transform: scale(1.05);
     box-shadow: 0 0 20px var(--primary);
 }
 
-/* Modal Styling */
-.modal { display: none; position: fixed; z-index: 1000; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); }
-.glass { background: rgba(20,20,20,0.8); backdrop-filter: blur(20px); border: 1px solid var(--primary); padding: 50px; border-radius: 30px; margin: 10% auto; width: 350px; }
-                                                                                              
+/* Modal System */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    backdrop-filter: blur(15px);
+}
+
+.glass {
+    background: rgba(20, 20, 20, 0.9);
+    border: 1px solid var(--primary);
+    padding: 40px;
+    border-radius: 30px;
+    width: 400px;
+    margin: 10% auto;
+    text-align: center;
+}
+
+/* Car-Style Speedometer */
+.speedometer {
+    width: 240px;
+    height: 120px;
+    border: 5px solid var(--primary);
+    border-radius: 200px 200px 0 0;
+    position: relative;
+    margin: 30px auto;
+    border-bottom: none;
+}
+
+.needle {
+    width: 4px;
+    height: 100px;
+    background: var(--error);
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform-origin: bottom center;
+    transform: rotate(-90deg); /* Start at 0 */
+    transition: 2s cubic-bezier(0.17, 0.67, 0.83, 0.67);
+}
+
+/* Admin Dashboard Table */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.admin-table th, td {
+    padding: 15px;
+    text-align: left;
+    border-bottom: 1px solid #333;
+}
+
+.admin-table th {
+    color: var(--primary);
+    text-transform: uppercase;
+}
+
+/* Payment & Utility */
+.btn-pay {
+    background: var(--gold);
+    color: black;
+    width: 100%;
+    padding: 18px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-top: 20px;
+    border: none;
+    cursor: pointer;
+}
+
+input[type="text"], input[type="password"] {
+    width: 100%;
+    padding: 15px;
+    margin: 10px 0;
+    background: #111;
+    border: 1px solid #333;
+    border-radius: 10px;
+    color: white;
+}
