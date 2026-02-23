@@ -3,75 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>h a i viral | The Global Scientific Pulse</title>
+    <title>h a i viral | Global Scientific Engine</title>
     <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Orbitron:wght@500;900&display=swap" rel="stylesheet">
-    
-    <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement({
-                pageLanguage: 'hi', 
-                layout: google.translate.TranslateElement.InlineLayout.SIMPLE,
-                autoDisplay: true 
-            }, 'google_translate_element');
-        }
-    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 </head>
 <body>
-
     <div id="google_translate_element" style="display:none;"></div>
-
     <div class="background-animation"></div>
 
     <header class="navbar">
         <div class="logo">h a i  viral</div>
-        <div class="location-chip">
-            <span class="pulse"></span> 🌍 <span id="auto-country">Global Pulse Active</span>
+        <div class="auth-controls">
+            <button class="btn-login" onclick="openAuth()">Login / Sign Up</button>
         </div>
     </header>
 
-    <main class="hero-container">
-        <section class="hero-text">
-            <h1 class="famous-title">Global Reach. <br><span class="highlight">Scientific Impact.</span></h1>
-            <p class="famous-subtitle">संसार का सबसे उन्नत वायरल इंजन। अपने वीडियो, पोस्ट और लिंक्स को पूरी दुनिया में प्रसारित करें।</p>
-        </section>
+    <main class="hero">
+        <h1 class="famous-title">Global <span class="highlight">Viral Wave</span></h1>
+        <p>YouTube, Insta, FB, Website या App लिंक डालें और पूरी दुनिया में फैलाएं।</p>
 
-        <div class="glass-profile-box">
-            <h2 id="txt-profile">Create Your Profile</h2>
-            <div class="input-group">
-                <input type="text" id="uName" placeholder="Full Name / नाम">
-                <input type="email" id="uEmail" placeholder="Email / ईमेल">
-            </div>
-            <button onclick="saveUser()" class="btn-primary">Join the Empire</button>
+        <div class="viral-input-box">
+            <input type="text" id="globalLink" placeholder="Paste link (Video, Reel, Post, App, Website)...">
+            <button onclick="checkAccess()" class="btn-blast">BLAST NOW 🚀</button>
         </div>
 
-        <div class="premium-tier">
-            <div class="card premium-famous">
-                <span class="tag">SATTVIC POWER</span>
-                <h2>Universal Legend</h2>
-                <div class="price-box">
-                    <span class="currency">₹</span>2000 <span class="divider">/</span> <span class="currency">$</span>25
-                </div>
-                <ul class="features">
-                    <li>✓ Global Google & YouTube Blast</li>
-                    <li>✓ Sanskar Module Protection</li>
-                    <li>✓ Live Real-time Tracking</li>
-                </ul>
-                <button onclick="pay(2000)" class="btn-glow">Activate Global Power 🚀</button>
-                <p class="upi-id">UPI: harigovindsingh91-2@okhdfcbank</p>
-            </div>
-        </div>
-
-        <div class="app-ecosystem">
-            <p>Ready for your device:</p>
-            <div class="download-btns">
-                <a href="#" class="store-btn android" onclick="download('android')">Android APK</a>
-                <a href="#" class="store-btn ios" onclick="download('ios')">iOS App</a>
-            </div>
+        <div class="create-content">
+            <p>या अपनी पोस्ट यहाँ बनाएँ</p>
+            <button onclick="openEditor()" class="btn-outline">Create Post/Reel</button>
         </div>
     </main>
 
+    <div id="authModal" class="modal">
+        <div class="modal-content glass">
+            <span class="close" onclick="closeAuth()">&times;</span>
+            <h2 id="authTitle">Secure Access</h2>
+            <div id="otpStep1">
+                <input type="text" id="userContact" placeholder="Mobile Number or Email">
+                <button onclick="sendOTP()" class="btn-glow">Send OTP</button>
+            </div>
+            <div id="otpStep2" style="display:none;">
+                <input type="text" id="otpCode" placeholder="Enter 6-Digit OTP">
+                <button onclick="verifyOTP()" class="btn-glow">Verify & Login</button>
+            </div>
+        </div>
+    </div>
+
     <script src="public.js"></script>
 </body>
-</html>
+            </html>
+    
